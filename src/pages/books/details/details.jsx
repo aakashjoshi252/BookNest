@@ -6,6 +6,7 @@ import Books from "../Books"
 export default function BooksDetails() {
   const [data, setData] = useState(null);
   const { id } = useParams(); // get book ID from route
+  // const [embedUrl,setEmbedUrl]=useState(null)
 
   useEffect(() => {
     if (id) {
@@ -16,7 +17,7 @@ export default function BooksDetails() {
   const handleFetch = async () => {
     try {
       const response = await api.get(`/books/${id}`);
-      setData(response.data);
+      setData(response.data)
     } catch (error) {
       console.error(error);
     }
@@ -36,6 +37,7 @@ export default function BooksDetails() {
   return (
     <>
     <div className="container mt-5">
+      <iframe src={`https://www.youtube.com/embed/${data.videoSummary}`} frameborder="0"></iframe>
       <div className="row">
         {/* Book Images */}
         <div className="col-md-6 mb-4">
@@ -98,14 +100,19 @@ export default function BooksDetails() {
 
           <div className="mt-4">
             <h5>Key Features:</h5>
+            
             <ul>
               {data.features?.map((feature, idx) => (
+                <>
                 <li key={idx}>{feature}</li>
+                
+                </>
               ))}
             </ul>
           </div>
         </div>
       </div>
+      
       <Books/>
     </div>
   </>
