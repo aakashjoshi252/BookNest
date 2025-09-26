@@ -5,6 +5,7 @@ import './index.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Checkout from './pages/books/details/CheckOut.jsx'
 let Layout = lazy(() => import('./layout/Layout.jsx'))
 let Home = lazy(() => import('./pages/Home.jsx'))
 let About = lazy(() => import('./pages/About.jsx'))
@@ -17,6 +18,7 @@ let PolicyView = lazy(() => import('./pages/Policy.jsx'))
 let Faq = lazy(() => import('./pages/Faq.jsx'))
 let Contact = lazy(() => import('./pages/Contact.jsx'))
 let PageNot = lazy(() => import("./pages/P404.jsx"))
+let AddToCart = lazy(() => import("./pages/books/details/AddToCart.jsx"))
 let routes = createBrowserRouter([
     {
         path: "/",
@@ -40,6 +42,13 @@ let routes = createBrowserRouter([
                     {
                         path: 'books/details/:id',
                         element: <Suspense fallback={<Loader />}> <BooksDetails /></Suspense>
+                    },
+                    {
+                        path:"books/details/addtocart/:id",
+                        element: <Suspense> <AddToCart/> </Suspense>
+                    },{
+                        path:"books/details/addtocart/checkout",
+                        element: <Suspense> <Checkout/> </Suspense>
                     }
                 ]
             },

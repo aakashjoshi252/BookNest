@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import { api } from "../../../api/api";
 import Books from "../Books";
 
 export default function BooksDetails() {
   const [data, setData] = useState(null);
-  const { id } = useParams(); // get book ID from route
+  const { id } = useParams();
 
   useEffect(() => {
     if (id) {
@@ -38,12 +38,7 @@ export default function BooksDetails() {
         <div className="row">
           {/* Book Images */}
           <div className="col-md-6 mb-4">
-            <img
-              src={data.cover}
-              alt={data.title}
-              className="img-fluid rounded mb-3 shadow-sm"
-              style={{ maxHeight: "400px", objectFit: "cover", width: "100%" }}
-            />
+            <img src={data.cover} alt={data.title} className="img-fluid rounded mb-3 shadow-sm" style={{ maxHeight: "400px", objectFit: "cover", width: "100%" }}/>
           </div>
 
           {/* Book Details */}
@@ -62,13 +57,7 @@ export default function BooksDetails() {
 
             <div className="mb-3">
               {[...Array(5)].map((_, i) => (
-                <i
-                  key={i}
-                  className={`bi ${i < Math.floor(data.rating)
-                      ? "bi-star-fill text-warning"
-                      : "bi-star text-muted"
-                    }`}
-                />
+                <i key={i}className={`bi ${i < Math.floor(data.rating)? "bi-star-fill text-warning": "bi-star text-muted"}`} />
               ))}
               <span className="ms-2">({data.rating} / 5)</span>
             </div>
@@ -77,24 +66,13 @@ export default function BooksDetails() {
 
             <div className="mb-4">
               <h5>Quantity:</h5>
-              <input
-                type="number"
-                className="form-control"
-                defaultValue={1}
-                min={1}
-                style={{ width: 100 }}
-              />
+              <input type="number"className="form-control" defaultValue={1} min={1} style={{ width: 100 }}/>
             </div>
 
             <div className="mb-4">
-              <button className="btn btn-primary btn-lg me-2 mb-2">
-                <i className="bi bi-cart-plus me-1" /> Add to Cart
-              </button>
-              <button className="btn btn-outline-secondary btn-lg mb-2">
-                <i className="bi bi-heart me-1" /> Add to Wishlist
-              </button>
+              <NavLink to={`/books/details/addtocart/${data.id}`} className="bi bi-cart-plus me-1 btn btn-primary btn-lg me-2 mb-2 custom-cart-btn">Add to Cart</NavLink>
+              <NavLink to="/addtocart" className="bi bi-heart me-1 btn btn-outline-secondary btn-lg mb-2 custom-wishlist-btn">Add to Wishlist</NavLink>
             </div>
-
             <div className="mt-4">
               <h5>Key Features:</h5>
               <ul>
@@ -103,9 +81,8 @@ export default function BooksDetails() {
                 ))}
               </ul>
             </div>
-
-
           </div>
+
           {/* Book Summary Video */}
           {data.videoSummary && (
             <div className="mt-5">
@@ -114,13 +91,7 @@ export default function BooksDetails() {
                   <i className="bi bi-play-circle-fill me-2"></i> Book Summary
                 </h4>
                 <div className="ratio ratio-16x9">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${data.videoSummary}`}
-                    title={`${data.title} summary`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="rounded"
-                  ></iframe>
+                  <iframe src={`https://www.youtube.com/embed/${data.videoSummary}`} title={`${data.title} summary`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="rounded"></iframe>
                 </div>
               </div>
             </div>
