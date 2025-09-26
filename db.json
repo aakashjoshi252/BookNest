@@ -1,0 +1,559 @@
+{
+  "books": [
+    {
+      "id": "1",
+      "title": "The Silent Patient",
+      "author": "Alex Michaelides",
+      "genre": "Thriller",
+      "price": 399,
+      "rating": 4.5,
+      "stock": 20,
+      "cover": "https://covers.openlibrary.org/b/id/10958382-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=z5HSY1J8V_8"
+    },
+    {
+      "id": "2",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "genre": "Self-Help",
+      "price": 499,
+      "rating": 4.8,
+      "stock": 35,
+      "cover": "https://covers.openlibrary.org/b/id/11153203-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=U_nzqnXWvSo"
+    },
+    {
+      "id": "5",
+      "title": "The Alchemist",
+      "author": "Paulo Coelho",
+      "genre": "Fiction",
+      "price": 299,
+      "rating": 4.4,
+      "stock": 25,
+      "cover": "https://covers.openlibrary.org/b/id/8231992-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=FcqgrSHdt3M"
+    },
+    {
+      "id": "6",
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "genre": "History",
+      "price": 550,
+      "rating": 4.8,
+      "stock": 18,
+      "cover": "https://covers.openlibrary.org/b/id/8469561-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=QxZ4aJ3XU9s"
+    },
+    {
+      "id": "7",
+      "title": "The Subtle Art of Not Giving a F*ck",
+      "author": "Mark Manson",
+      "genre": "Self-Help",
+      "price": 420,
+      "rating": 4.3,
+      "stock": 30,
+      "cover": "https://covers.openlibrary.org/b/id/8235116-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=js1xG5xkGJ4"
+    },
+    {
+      "id": "8",
+      "title": "Think and Grow Rich",
+      "author": "Napoleon Hill",
+      "genre": "Motivation",
+      "price": 310,
+      "rating": 4.5,
+      "stock": 22,
+      "cover": "https://covers.openlibrary.org/b/id/10622317-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=71Pyzt3L3tY"
+    },
+    {
+      "id": "9",
+      "title": "The Power of Now",
+      "author": "Eckhart Tolle",
+      "genre": "Spirituality",
+      "price": 380,
+      "rating": 4.6,
+      "stock": 28,
+      "cover": "https://covers.openlibrary.org/b/id/240726-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=4Pkr0v5-Y0g"
+    },
+    {
+      "id": "10",
+      "title": "Harry Potter and the Philosopher's Stone",
+      "author": "J.K. Rowling",
+      "genre": "Fantasy",
+      "price": 650,
+      "rating": 4.9,
+      "stock": 50,
+      "cover": "https://covers.openlibrary.org/b/id/7884866-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=VyHV0BRtdxo"
+    },
+    {
+      "id": "11",
+      "title": "1984",
+      "author": "George Orwell",
+      "genre": "Dystopian",
+      "price": 299,
+      "rating": 4.8,
+      "stock": 33,
+      "cover": "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=GQxOKXEff4I"
+    },
+    {
+      "id": "12",
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "genre": "Classic",
+      "price": 349,
+      "rating": 4.9,
+      "stock": 29,
+      "cover": "https://covers.openlibrary.org/b/id/8228691-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=KR7loA_oziY"
+    },
+    {
+      "id": "13",
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "genre": "Classic",
+      "price": 270,
+      "rating": 4.4,
+      "stock": 21,
+      "cover": "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=e6Iu29TNfkM"
+    },
+    {
+      "id": "14",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "genre": "Romance",
+      "price": 320,
+      "rating": 4.7,
+      "stock": 18,
+      "cover": "https://covers.openlibrary.org/b/id/8231856-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=fJA27Jujzq4"
+    },
+    {
+      "id": "15",
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "genre": "Fantasy",
+      "price": 499,
+      "rating": 4.9,
+      "stock": 44,
+      "cover": "https://covers.openlibrary.org/b/id/6979861-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=SDnYMbYB-nU"
+    },
+    {
+      "id": "16",
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "genre": "Fiction",
+      "price": 280,
+      "rating": 4.3,
+      "stock": 23,
+      "cover": "https://covers.openlibrary.org/b/id/8226191-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=qC2lP8V7YbM"
+    },
+    {
+      "id": "17",
+      "title": "Meditations",
+      "author": "Marcus Aurelius",
+      "genre": "Philosophy",
+      "price": 310,
+      "rating": 4.8,
+      "stock": 27,
+      "cover": "https://covers.openlibrary.org/b/id/11105858-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=o7d8iKGFsWQ"
+    },
+    {
+      "id": "18",
+      "title": "Man's Search for Meaning",
+      "author": "Viktor E. Frankl",
+      "genre": "Psychology",
+      "price": 350,
+      "rating": 4.9,
+      "stock": 19,
+      "cover": "https://covers.openlibrary.org/b/id/8225265-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=5Bz4q-2U8s8"
+    },
+    {
+      "id": "19",
+      "title": "The 48 Laws of Power",
+      "author": "Robert Greene",
+      "genre": "Strategy",
+      "price": 620,
+      "rating": 4.6,
+      "stock": 32,
+      "cover": "https://covers.openlibrary.org/b/id/8278322-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=cVH1y8G2HUo"
+    },
+    {
+      "id": "20",
+      "title": "Educated",
+      "author": "Tara Westover",
+      "genre": "Memoir",
+      "price": 430,
+      "rating": 4.7,
+      "stock": 16,
+      "cover": "https://covers.openlibrary.org/b/id/8935443-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=USK-5dmuI3A"
+    },
+    {
+      "id": "21",
+      "title": "Becoming",
+      "author": "Michelle Obama",
+      "genre": "Biography",
+      "price": 499,
+      "rating": 4.9,
+      "stock": 34,
+      "cover": "https://covers.openlibrary.org/b/id/8874563-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=6j6TZAk93uE"
+    },
+    {
+      "id": "22",
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "genre": "Sci-Fi",
+      "price": 599,
+      "rating": 4.8,
+      "stock": 28,
+      "cover": "https://covers.openlibrary.org/b/id/8101351-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=n9xhJrPXop4"
+    },
+    {
+      "id": "23",
+      "title": "The Road",
+      "author": "Cormac McCarthy",
+      "genre": "Post-Apocalyptic",
+      "price": 360,
+      "rating": 4.5,
+      "stock": 14,
+      "cover": "https://covers.openlibrary.org/b/id/8231742-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=hbLgszfXTAY"
+    },
+    {
+      "id": "24",
+      "title": "Shiva Trilogy",
+      "author": "Amish Tripathi",
+      "genre": "Mythology",
+      "price": 700,
+      "rating": 4.7,
+      "stock": 41,
+      "cover": "https://covers.openlibrary.org/b/id/8375348-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=W5Qe5SP3G8Y"
+    },
+    {
+      "id": "25",
+      "title": "A Brief History of Time",
+      "author": "Stephen Hawking",
+      "genre": "Science",
+      "price": 420,
+      "rating": 4.8,
+      "stock": 20,
+      "cover": "https://covers.openlibrary.org/b/id/240726-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=UAfxKExKjVQ"
+    },
+    {
+      "id": "26",
+      "title": "The Lean Startup",
+      "author": "Eric Ries",
+      "genre": "Business",
+      "price": 450,
+      "rating": 4.6,
+      "stock": 22,
+      "cover": "https://covers.openlibrary.org/b/id/8235476-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=fEvKo90qBns"
+    },
+    {
+      "id": "27",
+      "title": "Zero to One",
+      "author": "Peter Thiel",
+      "genre": "Entrepreneurship",
+      "price": 390,
+      "rating": 4.5,
+      "stock": 24,
+      "cover": "https://covers.openlibrary.org/b/id/8235491-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=0JkRsgX9tE4"
+    },
+    {
+      "id": "28",
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "genre": "Productivity",
+      "price": 400,
+      "rating": 4.7,
+      "stock": 19,
+      "cover": "https://covers.openlibrary.org/b/id/8235487-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=ZD7dXfdDPfg"
+    },
+    {
+      "id": "29",
+      "title": "Can't Hurt Me",
+      "author": "David Goggins",
+      "genre": "Motivation",
+      "price": 500,
+      "rating": 4.9,
+      "stock": 36,
+      "cover": "https://covers.openlibrary.org/b/id/8235469-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=78I9dTB9vqM"
+    },
+    {
+      "id": "30",
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "genre": "Finance",
+      "price": 460,
+      "rating": 4.8,
+      "stock": 27,
+      "cover": "https://covers.openlibrary.org/b/id/11078420-L.jpg",
+      "videoSummary": "https://www.youtube.com/watch?v=QONB8Yj-WXc"
+    }
+  ],
+  "indianStates": [
+    {
+      "code": "AN",
+      "state": "Andaman and Nicobar Islands",
+      "id": "0b69"
+    },
+    {
+      "code": "AP",
+      "state": "Andhra Pradesh",
+      "id": "685d"
+    },
+    {
+      "code": "AR",
+      "state": "Arunachal Pradesh",
+      "id": "acc7"
+    },
+    {
+      "code": "AS",
+      "state": "Assam",
+      "id": "6499"
+    },
+    {
+      "code": "BR",
+      "state": "Bihar",
+      "id": "f075"
+    },
+    {
+      "code": "CH",
+      "state": "Chandigarh",
+      "id": "7531"
+    },
+    {
+      "code": "CG",
+      "state": "Chhattisgarh",
+      "id": "6733"
+    },
+    {
+      "code": "DN",
+      "state": "Dadra and Nagar Haveli and Daman and Diu",
+      "id": "8d73"
+    },
+    {
+      "code": "DL",
+      "state": "Delhi",
+      "id": "407f"
+    },
+    {
+      "code": "GA",
+      "state": "Goa",
+      "id": "532f"
+    },
+    {
+      "code": "GJ",
+      "state": "Gujarat",
+      "id": "994a"
+    },
+    {
+      "code": "HR",
+      "state": "Haryana",
+      "id": "ca6e"
+    },
+    {
+      "code": "HP",
+      "state": "Himachal Pradesh",
+      "id": "1342"
+    },
+    {
+      "code": "JK",
+      "state": "Jammu and Kashmir",
+      "id": "509e"
+    },
+    {
+      "code": "JH",
+      "state": "Jharkhand",
+      "id": "cb58"
+    },
+    {
+      "code": "KA",
+      "state": "Karnataka",
+      "id": "0180"
+    },
+    {
+      "code": "KL",
+      "state": "Kerala",
+      "id": "0fd7"
+    },
+    {
+      "code": "LA",
+      "state": "Ladakh",
+      "id": "d37b"
+    },
+    {
+      "code": "LD",
+      "state": "Lakshadweep",
+      "id": "622f"
+    },
+    {
+      "code": "MP",
+      "state": "Madhya Pradesh",
+      "id": "f271"
+    },
+    {
+      "code": "MH",
+      "state": "Maharashtra",
+      "id": "91d0"
+    },
+    {
+      "code": "MN",
+      "state": "Manipur",
+      "id": "9ce2"
+    },
+    {
+      "code": "ML",
+      "state": "Meghalaya",
+      "id": "5bed"
+    },
+    {
+      "code": "MZ",
+      "state": "Mizoram",
+      "id": "7ae1"
+    },
+    {
+      "code": "NL",
+      "state": "Nagaland",
+      "id": "470b"
+    },
+    {
+      "code": "OD",
+      "state": "Odisha",
+      "id": "5973"
+    },
+    {
+      "code": "PY",
+      "state": "Puducherry",
+      "id": "e1ae"
+    },
+    {
+      "code": "PB",
+      "state": "Punjab",
+      "id": "472d"
+    },
+    {
+      "code": "RJ",
+      "state": "Rajasthan",
+      "id": "f426"
+    },
+    {
+      "code": "SK",
+      "state": "Sikkim",
+      "id": "0c3c"
+    },
+    {
+      "code": "TN",
+      "state": "Tamil Nadu",
+      "id": "ba45"
+    },
+    {
+      "code": "TS",
+      "state": "Telangana",
+      "id": "f5d3"
+    },
+    {
+      "code": "TR",
+      "state": "Tripura",
+      "id": "7d6d"
+    },
+    {
+      "code": "UP",
+      "state": "Uttar Pradesh",
+      "id": "1648"
+    },
+    {
+      "code": "UK",
+      "state": "Uttarakhand",
+      "id": "5fae"
+    },
+    {
+      "code": "WB",
+      "state": "West Bengal",
+      "id": "0487"
+    }
+  ],
+  "users": [
+    {
+      "id": "4f3a",
+      "username": "test",
+      "password": "12345678",
+      "mobile": "1234567890",
+      "address": "thamla",
+      "address2": "Mavli",
+      "city": "udaipur",
+      "state": "RJ",
+      "zip": "313204",
+      "email": "test@gmail.com",
+      "checkbox": true
+    },
+    {
+      "id": "2444",
+      "username": "Anil",
+      "password": "1234567890",
+      "mobile": "839293832",
+      "address": "Thamla",
+      "address2": "Chaprda",
+      "city": "Mavli",
+      "state": "RJ",
+      "zip": "313204",
+      "email": "anil@gmail.com",
+      "checkbox": true
+    },
+    {
+      "id": "628d",
+      "username": "parth",
+      "password": "1",
+      "mobile": "1234567890",
+      "address": "Thamla",
+      "address2": "Chaprda",
+      "city": "Mavli",
+      "state": "RJ",
+      "zip": "313204",
+      "email": "test@gmail.com",
+      "checkbox": true
+    },
+    {
+      "id": "05af",
+      "username": "Aakash",
+      "password": "12345678",
+      "mobile": "1234567890",
+      "address": "mavli",
+      "address2": "Chaprda",
+      "city": "Mavli",
+      "state": "RJ",
+      "zip": "313204",
+      "email": "anil@gmail.com",
+      "checkbox": true
+    }
+  ],
+  "send-email": [
+    {
+      "id": "2ef5",
+      "method": "POST",
+      "name": "",
+      "email": "",
+      "subject": "",
+      "message": "",
+      "body": "{\"name\":\"Akki Joshi\",\"email\":\"test@latest\",\"subject\":\"ewfer\",\"message\":\"wqde\"}"
+    }
+  ]
+}
