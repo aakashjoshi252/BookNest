@@ -64,11 +64,10 @@ export default function BooksDetails() {
               {[...Array(5)].map((_, i) => (
                 <i
                   key={i}
-                  className={`bi ${
-                    i < Math.floor(data.rating)
+                  className={`bi ${i < Math.floor(data.rating)
                       ? "bi-star-fill text-warning"
                       : "bi-star text-muted"
-                  }`}
+                    }`}
                 />
               ))}
               <span className="ms-2">({data.rating} / 5)</span>
@@ -105,29 +104,33 @@ export default function BooksDetails() {
               </ul>
             </div>
 
-            
+
           </div>
           {/* Book Summary Video */}
-            {data.videoSummary && (
-              <div className="d-flex bg-black mt-5">
-                <h4 className="mb-3"> Book Summary</h4>
+          {data.videoSummary && (
+            <div className="mt-5">
+              <div className="card shadow-lg border-0 rounded-4 p-3 animate-summary">
+                <h4 className="mb-3 text-primary fw-bold d-flex align-items-center">
+                  <i className="bi bi-play-circle-fill me-2"></i> Book Summary
+                </h4>
                 <div className="ratio ratio-16x9">
                   <iframe
                     src={`https://www.youtube.com/embed/${data.videoSummary}`}
                     title={`${data.title} summary`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    className="rounded shadow-sm"
+                    className="rounded"
                   ></iframe>
                 </div>
               </div>
-            )}
+            </div>
+          )}
         </div>
 
         {/* Related Books */}
-        {/* <div className="mt-5">
+        <div className="mt-5">
           <Books />
-        </div> */}
+        </div>
       </div>
     </>
   );
