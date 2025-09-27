@@ -38,8 +38,9 @@ export default function Regis() {
   const { handleSubmit, handleChange, values, handleReset, errors, touched } =
     useFormik({
       initialValues: initialValue,
-      // validationSchema: regisSchema,
-      onSubmit: handleSendData
+      onSubmit: handleSendData,
+      validationSchema: regisSchema
+     
     });
 
   // Submit handler

@@ -985,56 +985,17 @@
   ],
   "users": [
     {
-      "id": "4f3a",
+      "id": "4a44",
       "username": "test",
-      "password": "12345678",
-      "mobile": "1234567890",
-      "address": "thamla",
-      "address2": "Mavli",
-      "city": "udaipur",
-      "state": "RJ",
-      "zip": "313204",
-      "email": "test@gmail.com",
-      "checkbox": true
-    },
-    {
-      "id": "2444",
-      "username": "Anil",
-      "password": "1234567890",
-      "mobile": "839293832",
-      "address": "Thamla",
-      "address2": "Chaprda",
-      "city": "Mavli",
-      "state": "RJ",
-      "zip": "313204",
-      "email": "anil@gmail.com",
-      "checkbox": true
-    },
-    {
-      "id": "628d",
-      "username": "parth",
-      "password": "1",
-      "mobile": "1234567890",
-      "address": "Thamla",
-      "address2": "Chaprda",
-      "city": "Mavli",
-      "state": "RJ",
-      "zip": "313204",
-      "email": "test@gmail.com",
-      "checkbox": true
-    },
-    {
-      "id": "05af",
-      "username": "Aakash",
-      "password": "12345678",
-      "mobile": "1234567890",
+      "password": "1234567",
+      "mobile": "1324567890",
       "address": "mavli",
-      "address2": "Chaprda",
-      "city": "Mavli",
+      "address2": "thamla",
+      "city": "mavli",
       "state": "RJ",
-      "zip": "313204",
-      "email": "anil@gmail.com",
-      "checkbox": true
+      "zip": "123456",
+      "email": "test@gmail.com",
+      "checkbox": false
     }
   ],
   "send-email": [
