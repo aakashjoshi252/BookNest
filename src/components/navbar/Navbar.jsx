@@ -64,6 +64,11 @@ export default function Navbar() {
                 Home
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/contact">
+                Contact
+              </NavLink>
+            </li>
             {!user ? (
               <>
                 <li className="nav-item">

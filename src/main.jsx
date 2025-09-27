@@ -45,13 +45,13 @@ let routes = createBrowserRouter([
       },
       {
         path: 'books/details/:id',
-        element: <Suspense fallback={<Loader />}><BooksDetails /></Suspense>
+        element: <Suspense fallback="Loding...."><BooksDetails /></Suspense>
       },
       {
         path:"books/details/addtocart/:id",
         element: (
           <ProtectedRoute>
-            <Suspense fallback={<Loader />}><AddToCart /></Suspense>
+            <Suspense fallback="Loding..."><AddToCart /></Suspense>
           </ProtectedRoute>
         )
       },
@@ -59,15 +59,15 @@ let routes = createBrowserRouter([
         path:"books/details/addtocart/checkout",
         element: (
           <ProtectedRoute>
-            <Suspense fallback={<Loader />}><Checkout /></Suspense>
+            <Suspense fallback="Loding..."><Checkout /></Suspense>
           </ProtectedRoute>
         )
       },
-      { path: '/about', element: <Suspense fallback={<Loader />}><About /></Suspense> },
-      { path: "/login", element: <Suspense fallback={<Loader />}><Login /></Suspense> },
+      { path: '/about', element: <Suspense fallback="Loding..."><About /></Suspense> },
+      { path: "/login", element: <Suspense fallback="Loding..."><Login /></Suspense> },
       {
         path: "login/regis",
-        element: <Suspense fallback={<Loader />}><Regis /></Suspense>
+        element: <Suspense fallback="Loding..."><Regis /></Suspense>
       },
       {
         path: "userprofile",
@@ -80,7 +80,7 @@ let routes = createBrowserRouter([
       { path: '/policy', element: <Suspense fallback={<Loader />}><PolicyView /></Suspense> },
       { path: '/faq', element: <Suspense fallback={<Loader />}><Faq /></Suspense> },
       { path: "contact", element: <Suspense fallback={<Loader />}><Contact /></Suspense> },
-      { path: "/p404", element: <Suspense fallback={<Loader />}><PageNot /></Suspense> },
+      { path: "/p404", element: <Suspense fallback="Loding..."><PageNot /></Suspense> },
     ]
   }
 ])

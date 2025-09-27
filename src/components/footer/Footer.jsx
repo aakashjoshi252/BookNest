@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FaFacebook, FaInstagram, FaTwitter, FaPinterest, FaLinkedin, FaYoutube, FaGithub, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
