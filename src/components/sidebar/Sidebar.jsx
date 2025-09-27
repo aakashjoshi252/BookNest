@@ -4,13 +4,13 @@ export default function Sidebar() {
   const location = useLocation();
 
   const menuItems = [
-    { name: "Dashboard", path: "/dashboard"},
-    { name: "My Products", path: "/product"},
-    { name: "Orders", path: "/order"},
-    { name: "Earnings", path: "/earning"},
-    { name: "Analytics", path: "/analytics"},
-    { name: "Messages", path: "/message"},
-    { name: "Settings", path: "/setting"},
+    { name: "Dashboard", path: "/dashboard" },
+    { name: "My Products", path: "/product" },
+    { name: "Orders", path: "/order" },
+    { name: "Earnings", path: "/earning" },
+    { name: "Analytics", path: "/analytics" },
+    { name: "Messages", path: "/message" },
+    { name: "Settings", path: "/setting" },
   ];
 
   return (
@@ -23,12 +23,14 @@ export default function Sidebar() {
             return (
               <li key={item.path} className="nav-item">
                 <NavLink
-                  href={item.path}
+                  to={item.path}
+                  end
                   className={`nav-link text-white ${
                     isActive ? "active bg-primary rounded px-3 fw-semibold" : ""
                   }`}
                 >
-                  <i className="me-2">{item.icon}</i> {item.name}
+                  {item.icon && <i className="me-2">{item.icon}</i>}
+                  {item.name}
                 </NavLink>
               </li>
             );

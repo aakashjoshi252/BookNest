@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
 
+
 // Lazy imports
 let Layout = lazy(() => import('./layout/Layout.jsx'))
 let Home = lazy(() => import('./pages/Home.jsx'))
@@ -21,6 +22,8 @@ let Contact = lazy(() => import('./pages/Contact.jsx'))
 let PageNot = lazy(() => import("./pages/P404.jsx"))
 let AddToCart = lazy(() => import("./pages/books/details/AddToCart.jsx"))
 let Checkout = lazy(() => import('./pages/books/details/CheckOut.jsx'))
+let Blog = lazy(() => import('./pages/blogs/Blog.jsx'))
+let BlogDetails = lazy(() => import('./pages/blogs/BlogDetails.jsx'))
 
 // ProtectedRoute component
 function ProtectedRoute({ children }) {
@@ -48,7 +51,7 @@ let routes = createBrowserRouter([
         element: <Suspense fallback="Loding...."><BooksDetails /></Suspense>
       },
       {
-        path:"books/details/addtocart/:id",
+        path: "books/details/addtocart/:id",
         element: (
           <ProtectedRoute>
             <Suspense fallback="Loding..."><AddToCart /></Suspense>
@@ -56,7 +59,7 @@ let routes = createBrowserRouter([
         )
       },
       {
-        path:"books/details/addtocart/checkout",
+        path: "books/details/addtocart/checkout",
         element: (
           <ProtectedRoute>
             <Suspense fallback="Loding..."><Checkout /></Suspense>
@@ -80,7 +83,18 @@ let routes = createBrowserRouter([
       { path: '/policy', element: <Suspense fallback={<Loader />}><PolicyView /></Suspense> },
       { path: '/faq', element: <Suspense fallback={<Loader />}><Faq /></Suspense> },
       { path: "contact", element: <Suspense fallback={<Loader />}><Contact /></Suspense> },
+      { path: "blog", element: <Suspense fallback={<Loader />}><Blog /></Suspense> },
+      {
+        path: "blog",
+        children: [
+          {
+            path: "blog/blogdetails/:id",
+            element: <Suspense fallback={<Loader />}><BlogDetails /></Suspense>
+          }
+        ]
+      },
       { path: "/p404", element: <Suspense fallback="Loding..."><PageNot /></Suspense> },
+
     ]
   }
 ])

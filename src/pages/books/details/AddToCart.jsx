@@ -15,57 +15,57 @@ export default function AddToCart() {
     if (savedCart) setCart(JSON.parse(savedCart));
   }, []);
 
+  // Fetch book if `id` exists
   useEffect(() => {
-    if (id) handleFetch();
+    if (!id) return;
+    async function fetchBook() {
+      try {
+        const response = await api.get(`/books/${id}`);
+        setData(response.data);
+
+        setCart((prev) => {
+          const exists = prev.find((item) => item.id === response.data.id);
+          if (exists) return prev;
+          const newCart = [...prev, { ...response.data, quantity: 1 }];
+          return newCart;
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchBook();
   }, [id]);
 
-  const handleFetch = async () => {
-    try {
-      const response = await api.get(`/books/${id}`);
-      setData(response.data);
-
-      setCart((prev) => {
-        const exists = prev.find((item) => item.id === response.data.id);
-        if (exists) return prev;
-        const newCart = [...prev, { ...response.data, quantity: 1 }];
-        localStorage.setItem("cart", JSON.stringify(newCart));
-        return newCart;
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // Sync cart to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const handleQuantityChange = (id, action) => {
-    const updatedCart = cart.map((item) =>
-      item.id === id
-        ? {
-            ...item,
-            quantity:
-              action === "inc"
-                ? item.quantity + 1
-                : item.quantity > 1
-                ? item.quantity - 1
-                : 1,
-          }
-        : item
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity:
+                action === "inc"
+                  ? item.quantity + 1
+                  : item.quantity > 1
+                  ? item.quantity - 1
+                  : 1,
+            }
+          : item
+      )
     );
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
   const handleRemove = (id) => {
-    const updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    setCart((prev) => prev.filter((item) => item.id !== id));
   };
 
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
+  const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  if (!data) {
+  if (!data && id) {
     return (
       <div className="text-center mt-5">
         <div className="spinner-border text-primary" role="status">
@@ -77,9 +77,11 @@ export default function AddToCart() {
 
   return (
     <div className="container my-5">
-      <h2 className="mb-4 text-center"><TbTrolley /> Your Cart</h2>
+      <h2 className="mb-4 text-center">
+        <TbTrolley /> Your Cart
+      </h2>
 
-      {cart.length > 0 ? (
+      {cart.length ? (
         <>
           <div className="row g-3">
             {cart.map((item) => (
@@ -87,7 +89,12 @@ export default function AddToCart() {
                 <div className="card shadow-sm h-100 hover-shadow border-0">
                   <div className="row g-0 align-items-center">
                     <div className="col-4">
-                      <img src={item.cover} alt={item.title} className="img-fluid rounded-start p-2" style={{ maxHeight: "150px", objectFit: "cover" }}/>
+                      <img
+                        src={item.cover}
+                        alt={item.title}
+                        className="img-fluid rounded-start p-2"
+                        style={{ maxHeight: "150px", objectFit: "cover" }}
+                      />
                     </div>
                     <div className="col-8">
                       <div className="card-body">
@@ -98,13 +105,30 @@ export default function AddToCart() {
                           <small className="text-muted">x {item.quantity}</small>
                         </p>
                         <div className="d-flex align-items-center mb-2 gap-2">
-                          <button className="btn btn-outline-secondary btn-sm" onClick={() => handleQuantityChange(item.id, "dec")}>-</button>
+                          <button
+                            className="btn btn-outline-secondary btn-sm"
+                            aria-label="Decrease quantity"
+                            onClick={() => handleQuantityChange(item.id, "dec")}
+                          >
+                            -
+                          </button>
                           <span className="fw-bold">{item.quantity}</span>
-                          <button className="btn btn-outline-secondary btn-sm" onClick={() => handleQuantityChange(item.id, "inc")}>+</button>
+                          <button
+                            className="btn btn-outline-secondary btn-sm"
+                            aria-label="Increase quantity"
+                            onClick={() => handleQuantityChange(item.id, "inc")}
+                          >
+                            +
+                          </button>
                         </div>
                         <div className="d-flex justify-content-between align-items-center mt-2">
                           <strong>Total: ₹{item.price * item.quantity}</strong>
-                          <button className="btn btn-danger btn-sm" onClick={() => handleRemove(item.id)}>Remove</button>
+                          <button
+                            className="btn btn-danger btn-sm"
+                            onClick={() => handleRemove(item.id)}
+                          >
+                            Remove
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -113,13 +137,25 @@ export default function AddToCart() {
               </div>
             ))}
           </div>
+
           <div className="d-flex justify-content-between align-items-center mt-4 p-3 border rounded shadow-sm bg-light">
             <h4>Total: ₹{totalPrice}</h4>
-            <NavLink to="/books/details/addtocart/checkout" className="btn btn-success btn-lg"> Proceed to Checkout </NavLink>
+            <NavLink
+              to="/books/details/addtocart/checkout"
+              className="btn btn-success btn-lg"
+            >
+              Proceed to Checkout
+            </NavLink>
           </div>
-        </>) : ( <p className="text-center fs-5 mt-5">
-  Your cart is empty{<NavLink to="/" className="text-decoration-none"><VscEmptyWindow size={24} className="ms-2" /></NavLink>}
-</p> )}
+        </>
+      ) : (
+        <p className="text-center fs-5 mt-5">
+          Your cart is empty{" "}
+          <NavLink to="/" className="text-decoration-none">
+            <VscEmptyWindow size={24} className="ms-2" />
+          </NavLink>
+        </p>
+      )}
     </div>
   );
 }

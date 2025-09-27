@@ -118,3 +118,10 @@
 .carousel-control-next:hover {
   transform: scale(1.1);
 }
+ /* books hover effect */
+ .hover-scale {
+            transition: transform 0.3s ease;
+          }
+          .hover-scale:hover {
+            transform: scale(1.05);
+          }

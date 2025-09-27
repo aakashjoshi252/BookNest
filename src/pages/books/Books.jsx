@@ -30,7 +30,7 @@ export default function Books() {
     book.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Pagination calculations (on filtered results)
+  // Pagination calculations
   const indexOfLastBook = currentPage * booksPerPage;
   const indexOfFirstBook = indexOfLastBook - booksPerPage;
   const currentBooks = filteredBooks.slice(indexOfFirstBook, indexOfLastBook);
@@ -38,7 +38,7 @@ export default function Books() {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo(0, 0); // scroll to top on page change
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -46,10 +46,7 @@ export default function Books() {
       <div className="container my-5">
         {/* Header */}
         <div className="text-center mb-5">
-          <h2 className="fw-bold" style={{ color: "#0d6efd" }}>
-            Our Book Collection
-          </h2>
-          
+          <h2 className="fw-bold text-primary">Our Book Collection</h2>
           <p className="text-muted">
             Explore our curated selection of books across various genres.
           </p>
@@ -58,12 +55,22 @@ export default function Books() {
 
         {/* Search Bar */}
         <div
-          className="mb-5 d-flex justify-content-center" style={{height: "3rem",width:"50", position: "Sticky",color:"black",top: "100px",left: 0,right: 0,zIndex: 1000}}>
-          <input type="text" className="form-control w-50 rounded-3 shadow-sm" placeholder="Search books by title..." value={searchTerm}
-            onChange={(e) => {setSearchTerm(e.target.value); 
-            setCurrentPage(1) }}/>
+          className="mb-5 d-flex justify-content-center position-sticky"
+          style={{ top: "100px", zIndex: 1020 }}
+        >
+          <input
+            type="text"
+            className="form-control w-50 rounded-3 shadow-sm"
+            placeholder="Search books by title..."
+            value={searchTerm}
+            onChange={(e) => {
+              setSearchTerm(e.target.value);
+              setCurrentPage(1);
+            }}
+          />
         </div>
 
+        {/* Loading / No books / Book Grid */}
         {loading ? (
           <div className="text-center">
             <div className="spinner-border text-primary" role="status">
@@ -77,8 +84,13 @@ export default function Books() {
             <div className="row g-4">
               {currentBooks.map((book) => (
                 <div key={book.id} className="col-6 col-md-4 col-lg-3">
-                  <div className="card h-100 shadow-sm border-0 rounded-4 hover-scale">
-                    <img src={book.cover}  className="card-img-top rounded-top-4"  alt={book.title}  style={{ height: "250px", objectFit: "cover" }}/>
+                  <div className="card h-100 shadow-sm border-0 rounded-4 hover-scale transition">
+                    <img
+                      src={book.cover}
+                      className="card-img-top rounded-top-4"
+                      alt={book.title}
+                      style={{ height: "250px", objectFit: "cover" }}
+                    />
                     <div className="card-body d-flex flex-column">
                       <h5 className="card-title fw-bold">{book.title}</h5>
                       <p className="card-text mb-1">
@@ -105,7 +117,9 @@ export default function Books() {
                 {Array.from({ length: totalPages }, (_, i) => (
                   <li
                     key={i + 1}
-                    className={`page-item ${currentPage === i + 1 ? "active" : ""}`}
+                    className={`page-item ${
+                      currentPage === i + 1 ? "active" : ""
+                    }`}
                   >
                     <button
                       className="page-link"
@@ -122,6 +136,18 @@ export default function Books() {
       </div>
 
       <Outlet />
+
+      {/* Optional CSS for hover effect */}
+      <style>
+        {`
+          .hover-scale {
+            transition: transform 0.3s ease;
+          }
+          .hover-scale:hover {
+            transform: scale(1.05);
+          }
+        `}
+      </style>
     </>
   );
 }

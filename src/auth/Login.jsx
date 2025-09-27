@@ -2,27 +2,28 @@ import { useFormik } from "formik";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { api } from "../api/api"; // axios instance
 
+// Initial form values
 let initialValue = {
   username: "",
   email: "",
   password: "",
-  confirmPassword: "",
 };
 
 export default function Login() {
   const navigate = useNavigate();
 
-  // Save name to localStorage
+  // Save logged-in user ID to localStorage
   const handleSave = (data) => {
     localStorage.setItem("user", JSON.stringify(data.id));
   };
 
-  // Function to check user
-  async function submitHandler(values) {
+  // Handle login
+  async function submitHandler(values, { resetForm }) {
     try {
       const response = await api.get("/users"); // fetch users
       const users = response.data;
 
+      // Find user by username OR email + password
       const foundUser = users.find(
         (u) =>
           (u.email === values.email || u.username === values.username) &&
@@ -30,23 +31,23 @@ export default function Login() {
       );
 
       if (foundUser) {
-        alert("Login Successful!");
+        alert("✅ Login Successful!");
         console.log("User found:", foundUser);
 
         handleSave(foundUser);
         navigate("/userProfile");
       } else {
-        alert(" Invalid username/email or password");
+        alert("❌ Invalid username/email or password");
       }
 
-      handleReset();
+      resetForm();
     } catch (error) {
       console.error("Error during login:", error);
-      alert(" Something went wrong. Please try again.");
+      alert("⚠️ Something went wrong. Please try again.");
     }
   }
 
-  const { handleChange, handleReset, handleSubmit, values } = useFormik({
+  const formik = useFormik({
     initialValues: initialValue,
     onSubmit: submitHandler,
   });
@@ -55,29 +56,25 @@ export default function Login() {
     <>
       <div className="container d-flex justify-content-center align-items-center min-vh-100">
         <div
-          className="card shadow-lg p-4 border-0 rounded-4"
+          className="card shadow-lg p-4 border-0 rounded-4 w-100"
           style={{ maxWidth: "500px" }}
         >
-          <h2 className="text-center mb-4 fw-bold text-success">Welcome Back</h2>
+          {/* Heading */}
+          <h2 className="text-center mb-3 fw-bold ">
+            Welcome Back
+          </h2>
           <p className="text-center text-muted mb-4">
             Please login to continue
           </p>
 
-          <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
+          {/* Login Form */}
+          <form onSubmit={formik.handleSubmit} className="d-flex flex-column gap-3">
             {/* Username */}
             <div>
               <label htmlFor="username" className="form-label fw-semibold">
                 Username
               </label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                value={values.username}
-                onChange={handleChange}
-                className="form-control form-control-lg rounded-3"
-                placeholder="Enter username"
-              />
+              <input type="text" name="username" id="username" value={formik.values.username} onChange={formik.handleChange} className="form-control form-control-lg rounded-3" placeholder="Enter username" />
             </div>
 
             {/* Email */}
@@ -85,48 +82,28 @@ export default function Login() {
               <label htmlFor="email" className="form-label fw-semibold">
                 Email
               </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={values.email}
-                onChange={handleChange}
-                className="form-control form-control-lg rounded-3"
-                placeholder="Enter email"
-              />
+              <input type="email" name="email" id="email" value={formik.values.email} onChange={formik.handleChange}className="form-control form-control-lg rounded-3" placeholder="Enter email"/>
             </div>
 
             {/* Password */}
             <div>
-              <label htmlFor="password" className="form-label fw-semibold">
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                value={values.password}
-                onChange={handleChange}
-                className="form-control form-control-lg rounded-3"
-                placeholder="Enter password"
-              />
+              <label htmlFor="password" className="form-label fw-semibold"> Password </label>
+            <input type="password"name="password" id="password" value={formik.values.password}onChange={formik.handleChange}className="form-control form-control-lg rounded-3"placeholder="Enter password" />
             </div>
 
             {/* Buttons */}
             <div className="d-flex justify-content-between mt-3">
-              <button type="submit" className="btn btn-success px-4 rounded-3">
+              <button
+                type="submit"
+                className="btn btn-success px-4 rounded-3 fw-semibold"
+              >
                 Login
               </button>
-              <button
-                type="button"
-                onClick={handleReset}
-                className="btn btn-outline-warning px-4 rounded-3"
-              >
-                Reset
-              </button>
+              <button type="button" onClick={formik.handleReset} className="btn btn-outline-danger px-4 rounded-3 fw-semibold">Reset</button>
             </div>
           </form>
 
+          {/* Register Link */}
           <div className="mt-4 text-center">
             <p className="mb-1 text-muted">Don’t have an account?</p>
             <NavLink to="/login/regis" className="fw-bold text-success">

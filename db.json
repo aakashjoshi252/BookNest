@@ -996,6 +996,19 @@
       "zip": "123456",
       "email": "test@gmail.com",
       "checkbox": false
+    },
+    {
+      "id": "bab0",
+      "username": "aakash",
+      "password": "1234567",
+      "mobile": "1234567890",
+      "address": "Thamla",
+      "address2": "Chaprda",
+      "city": "Mavli",
+      "state": "RJ",
+      "zip": "313204",
+      "email": "aaka@gmail.com",
+      "checkbox": true
     }
   ],
   "send-email": [

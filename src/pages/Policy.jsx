@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 
 export default function PolicyView() {
-  // Static policy data
   const policies = [
     {
       id: 1,
@@ -25,19 +24,34 @@ export default function PolicyView() {
 
   return (
     <div className="container my-5">
-      <h1 className="mb-4">Our Policies</h1>
+      <h1 className="mb-4 text-center">Our Policies</h1>
+
       {policies.map((policy) => (
-        <div key={policy.id} className="card mb-3 shadow-sm">
-          <div className="card-header fw-bold">{policy.title}</div>
+        <div
+          key={policy.id}
+          className="card mb-3 shadow-sm rounded-4 hover-scale"
+          style={{ transition: "transform 0.3s" }}
+        >
+          <div className="card-header fw-bold bg-primary text-white">
+            {policy.title}
+          </div>
           <div className="card-body">
-            <p>{policy.content}</p>
+            <p className="mb-0">{policy.content}</p>
           </div>
         </div>
       ))}
 
-      <NavLink to="/" className="btn btn-primary mt-3">
-        Back to Home
-      </NavLink>
+      <div className="text-center mt-4">
+        <NavLink to="/" className="btn btn-primary">
+          Back to Home
+        </NavLink>
+      </div>
+
+      <style>{`
+        .hover-scale:hover {
+          transform: translateY(-5px);
+        }
+      `}</style>
     </div>
   );
 }

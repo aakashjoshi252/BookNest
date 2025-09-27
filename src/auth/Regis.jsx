@@ -34,53 +34,45 @@ export default function Regis() {
     handleStates();
   }, []);
 
-  // Formik setup
-  const { handleSubmit, handleChange, values, handleReset, errors, touched } =
-    useFormik({
-      initialValues: initialValue,
-      onSubmit: handleSendData,
-      validationSchema: regisSchema
-     
-    });
-
   // Submit handler
-  async function handleSendData() {
+  async function handleSendData(values, { resetForm }) {
     try {
-      const response = await api.post("/users", {
-        username: values.username,
-        password: values.password,
-        mobile: values.mobile,
-        address: values.address,
-        address2: values.address2,
-        city: values.city,
-        state: values.state,
-        zip: values.zip,
-        email: values.email,
-        checkbox: values.checkbox,
-      });
-      console.log("User registered:", response.data);
-      handleReset();
+      const response = await api.post("/users", values);
+      console.log("✅ User registered:", response.data);
+
+      alert("🎉 Registration successful! Please login.");
+      resetForm();
       navigate("/login");
     } catch (error) {
       console.error("Error during registration:", error);
+      alert("⚠️ Something went wrong, please try again.");
     }
   }
+
+  // Formik setup
+  const formik = useFormik({
+    initialValues: initialValue,
+    onSubmit: handleSendData,
+    validationSchema: regisSchema,
+  });
 
   return (
     <div className="container my-5">
       <div className="row justify-content-center">
         <div className="col-lg-8">
           <div className="card shadow-lg border-0 rounded-4">
-            <div className="card-header bg-gradient text-black text-center py-3"
+            {/* Header */}
+            <div
+              className="card-header text-white text-center py-3"
               style={{ background: "linear-gradient(90deg,#0d6efd,#6610f2)" }}
             >
               <h4 className="mb-0 fw-bold">Create Your Account</h4>
               <p className="mb-0 small">Join us and get started today</p>
             </div>
 
+            {/* Body */}
             <div className="card-body p-4">
-              <form onSubmit={handleSubmit} className="row g-3">
-
+              <form onSubmit={formik.handleSubmit} className="row g-3">
                 {/* Username */}
                 <div className="col-md-6">
                   <label htmlFor="username" className="form-label fw-semibold">
@@ -90,14 +82,19 @@ export default function Regis() {
                     type="text"
                     id="username"
                     name="username"
-                    className={`form-control ${errors.username && touched.username ? "is-invalid" : ""
-                      }`}
+                    className={`form-control ${
+                      formik.errors.username && formik.touched.username
+                        ? "is-invalid"
+                        : ""
+                    }`}
                     placeholder="Enter your username"
-                    value={values.username}
-                    onChange={handleChange}
+                    value={formik.values.username}
+                    onChange={formik.handleChange}
                   />
-                  {errors.username && touched.username && (
-                    <div className="invalid-feedback">{errors.username}</div>
+                  {formik.errors.username && formik.touched.username && (
+                    <div className="invalid-feedback">
+                      {formik.errors.username}
+                    </div>
                   )}
                 </div>
 
@@ -110,14 +107,19 @@ export default function Regis() {
                     type="email"
                     id="email"
                     name="email"
-                    className={`form-control ${errors.email && touched.email ? "is-invalid" : ""
-                      }`}
+                    className={`form-control ${
+                      formik.errors.email && formik.touched.email
+                        ? "is-invalid"
+                        : ""
+                    }`}
                     placeholder="Enter your email"
-                    value={values.email}
-                    onChange={handleChange}
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
                   />
-                  {errors.email && touched.email && (
-                    <div className="invalid-feedback">{errors.email}</div>
+                  {formik.errors.email && formik.touched.email && (
+                    <div className="invalid-feedback">
+                      {formik.errors.email}
+                    </div>
                   )}
                 </div>
 
@@ -130,14 +132,19 @@ export default function Regis() {
                     type="text"
                     id="mobile"
                     name="mobile"
-                    className={`form-control ${errors.mobile && touched.mobile ? "is-invalid" : ""
-                      }`}
+                    className={`form-control ${
+                      formik.errors.mobile && formik.touched.mobile
+                        ? "is-invalid"
+                        : ""
+                    }`}
                     placeholder="Enter your mobile number"
-                    value={values.mobile}
-                    onChange={handleChange}
+                    value={formik.values.mobile}
+                    onChange={formik.handleChange}
                   />
-                  {errors.mobile && touched.mobile && (
-                    <div className="invalid-feedback">{errors.mobile}</div>
+                  {formik.errors.mobile && formik.touched.mobile && (
+                    <div className="invalid-feedback">
+                      {formik.errors.mobile}
+                    </div>
                   )}
                 </div>
 
@@ -150,14 +157,19 @@ export default function Regis() {
                     type="password"
                     id="password"
                     name="password"
-                    className={`form-control ${errors.password && touched.password ? "is-invalid" : ""
-                      }`}
+                    className={`form-control ${
+                      formik.errors.password && formik.touched.password
+                        ? "is-invalid"
+                        : ""
+                    }`}
                     placeholder="Enter your password"
-                    value={values.password}
-                    onChange={handleChange}
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
                   />
-                  {errors.password && touched.password && (
-                    <div className="invalid-feedback">{errors.password}</div>
+                  {formik.errors.password && formik.touched.password && (
+                    <div className="invalid-feedback">
+                      {formik.errors.password}
+                    </div>
                   )}
                 </div>
 
@@ -172,8 +184,8 @@ export default function Regis() {
                     name="address"
                     className="form-control"
                     placeholder="1234 Main St"
-                    value={values.address}
-                    onChange={handleChange}
+                    value={formik.values.address}
+                    onChange={formik.handleChange}
                   />
                 </div>
 
@@ -188,8 +200,8 @@ export default function Regis() {
                     name="address2"
                     className="form-control"
                     placeholder="Apartment, studio, or floor"
-                    value={values.address2}
-                    onChange={handleChange}
+                    value={formik.values.address2}
+                    onChange={formik.handleChange}
                   />
                 </div>
 
@@ -203,8 +215,8 @@ export default function Regis() {
                     id="city"
                     name="city"
                     className="form-control"
-                    value={values.city}
-                    onChange={handleChange}
+                    value={formik.values.city}
+                    onChange={formik.handleChange}
                   />
                 </div>
 
@@ -217,8 +229,8 @@ export default function Regis() {
                     id="state"
                     name="state"
                     className="form-select"
-                    value={values.state}
-                    onChange={handleChange}
+                    value={formik.values.state}
+                    onChange={formik.handleChange}
                   >
                     <option value="">Choose...</option>
                     {states.map((element, index) => (
@@ -239,8 +251,8 @@ export default function Regis() {
                     id="zip"
                     name="zip"
                     className="form-control"
-                    value={values.zip}
-                    onChange={handleChange}
+                    value={formik.values.zip}
+                    onChange={formik.handleChange}
                   />
                 </div>
 
@@ -252,8 +264,8 @@ export default function Regis() {
                       id="gridCheck"
                       name="checkbox"
                       className="form-check-input"
-                      checked={values.checkbox}
-                      onChange={handleChange}
+                      checked={formik.values.checkbox}
+                      onChange={formik.handleChange}
                     />
                     <label className="form-check-label" htmlFor="gridCheck">
                       Remember me
@@ -265,14 +277,14 @@ export default function Regis() {
                 <div className="d-flex justify-content-between align-items-center mt-3">
                   <button
                     type="submit"
-                    className="btn btn-primary btn-lg px-4 rounded-3"
+                    className="btn btn-primary btn-lg px-4 rounded-3 fw-semibold"
                   >
                     Sign Up
                   </button>
                   <button
                     type="button"
-                    onClick={handleReset}
-                    className="btn btn-outline-secondary btn-lg px-4 rounded-3"
+                    onClick={formik.handleReset}
+                    className="btn btn-outline-secondary btn-lg px-4 rounded-3 fw-semibold"
                   >
                     Reset
                   </button>
