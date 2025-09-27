@@ -53,3 +53,68 @@
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
 }
+
+/* Outer carousel */
+#carouselExampleCaptions {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Images */
+.carousel-img {
+  height: 70vh;               /* nice size */
+  object-fit: cover;          /* keeps image ratio */
+  filter: brightness(0.8);    /* darkens for caption visibility */
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item.active .carousel-img {
+  transform: scale(1.05);     /* zoom effect */
+}
+
+/* Captions */
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 15px 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.carousel-caption h5 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  color: #eee;
+  margin: 0;
+}
+
+/* Indicators */
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicators .active {
+  background-color: #ff6b6b;
+}
+
+/* Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(100%);
+  width: 35px;
+  height: 35px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  transform: scale(1.1);
+}

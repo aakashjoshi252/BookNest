@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { api } from "../../api/api";
 import { NavLink, Outlet } from "react-router-dom";
+import Carousel from "../../components/carousel/Carousel";
 
 export default function Books() {
   const [data, setData] = useState([]);
@@ -48,6 +49,7 @@ export default function Books() {
           <h2 className="fw-bold" style={{ color: "#0d6efd" }}>
             Our Book Collection
           </h2>
+          <Carousel />
           <p className="text-muted">
             Explore our curated selection of books across various genres.
           </p>

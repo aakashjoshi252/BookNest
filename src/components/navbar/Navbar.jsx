@@ -16,7 +16,6 @@ export default function Navbar() {
   // Fetch full user data on mount if logged in
   useEffect(() => {
     if (!user) return;
-
     async function fetchUser() {
       try {
         const response = await api.get(`/users/${user}`);
@@ -28,7 +27,6 @@ export default function Navbar() {
     }
     fetchUser();
   }, [user]);
-
   // Listen to localStorage changes in other tabs
   useEffect(() => {
     const handleStorageChange = () => {
@@ -45,7 +43,6 @@ export default function Navbar() {
     setUser(null);
     navigate("/login");
   };
-
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top"
