@@ -4,8 +4,9 @@ import Loader from './components/loader/Loader.jsx'
 import './index.css'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import Checkout from './pages/books/details/CheckOut.jsx'
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom"
+
+// Lazy imports
 let Layout = lazy(() => import('./layout/Layout.jsx'))
 let Home = lazy(() => import('./pages/Home.jsx'))
 let About = lazy(() => import('./pages/About.jsx'))
@@ -19,88 +20,71 @@ let Faq = lazy(() => import('./pages/Faq.jsx'))
 let Contact = lazy(() => import('./pages/Contact.jsx'))
 let PageNot = lazy(() => import("./pages/P404.jsx"))
 let AddToCart = lazy(() => import("./pages/books/details/AddToCart.jsx"))
+let Checkout = lazy(() => import('./pages/books/details/CheckOut.jsx'))
+
+// ProtectedRoute component
+function ProtectedRoute({ children }) {
+  const isLoggedIn = localStorage.getItem("user") // Replace with your auth logic
+  if (!isLoggedIn) return <Navigate to="/login" replace />
+  return children
+}
+
 let routes = createBrowserRouter([
-    {
-        path: "/",
-        element: <Suspense fallback={<Loader />} >
-            <Layout />
-        </Suspense>,
-        children: [
-            {
-                index: true,
-                element: <Suspense fallback={<Loader />}>
-                    <Home />
-                </Suspense>
-            },
-            {
-                path: '/',
-                children: [
-                    {
-                        path: 'books',
-                        element: <Suspense fallback={<Loader />}><Books /></Suspense>
-                    },
-                    {
-                        path: 'books/details/:id',
-                        element: <Suspense fallback={<Loader />}> <BooksDetails /></Suspense>
-                    },
-                    {
-                        path:"books/details/addtocart/:id",
-                        element: <Suspense> <AddToCart/> </Suspense>
-                    },{
-                        path:"books/details/addtocart/checkout",
-                        element: <Suspense> <Checkout/> </Suspense>
-                    }
-                ]
-            },
-            {
-                path: '/about',
-                element: <Suspense fallback={<Loader />}><About /></Suspense>
-            },
-
-
-            {
-                path: "/login",
-                element: <Suspense fallback={<Loader />}>
-                    <Login />
-                </Suspense>
-            },
-            {
-                path: "login",
-                children: [
-                    {
-                        path: "regis",
-                        element: <Suspense fallback={<Loader />}><Regis /></Suspense>
-                    }
-                ]
-
-            },
-            {
-                path: "userprofile",
-                element: <Suspense fallback={<Loader />}><UserProfile /></Suspense>
-            },
-            {
-                path: '/policy',
-                element: <Suspense fallback={<Loader />}><PolicyView /></Suspense>
-            },
-            {
-                path: '/faq',
-                element: <Suspense fallback={<Loader />}><Faq /></Suspense>
-            },
-            {
-                path: "contact",
-                element: <Suspense fallback={<Loader />}><Contact /></Suspense>
-            },
-            {
-                path: "/p404",
-                element: <Suspense fallback={<Loader />}><PageNot /></Suspense>
-            }
-
-        ]
-    },
-
-
-
+  {
+    path: "/",
+    element: (
+      <Suspense fallback={<Loader />}>
+        <Layout />
+      </Suspense>
+    ),
+    children: [
+      { index: true, element: <Suspense fallback={<Loader />}><Home /></Suspense> },
+      {
+        path: 'books',
+        element: <Suspense fallback={<Loader />}><Books /></Suspense>
+      },
+      {
+        path: 'books/details/:id',
+        element: <Suspense fallback={<Loader />}><BooksDetails /></Suspense>
+      },
+      {
+        path:"books/details/addtocart/:id",
+        element: (
+          <ProtectedRoute>
+            <Suspense fallback={<Loader />}><AddToCart /></Suspense>
+          </ProtectedRoute>
+        )
+      },
+      {
+        path:"books/details/addtocart/checkout",
+        element: (
+          <ProtectedRoute>
+            <Suspense fallback={<Loader />}><Checkout /></Suspense>
+          </ProtectedRoute>
+        )
+      },
+      { path: '/about', element: <Suspense fallback={<Loader />}><About /></Suspense> },
+      { path: "/login", element: <Suspense fallback={<Loader />}><Login /></Suspense> },
+      {
+        path: "login/regis",
+        element: <Suspense fallback={<Loader />}><Regis /></Suspense>
+      },
+      {
+        path: "userprofile",
+        element: (
+          <ProtectedRoute>
+            <Suspense fallback={<Loader />}><UserProfile /></Suspense>
+          </ProtectedRoute>
+        )
+      },
+      { path: '/policy', element: <Suspense fallback={<Loader />}><PolicyView /></Suspense> },
+      { path: '/faq', element: <Suspense fallback={<Loader />}><Faq /></Suspense> },
+      { path: "contact", element: <Suspense fallback={<Loader />}><Contact /></Suspense> },
+      { path: "/p404", element: <Suspense fallback={<Loader />}><PageNot /></Suspense> },
+    ]
+  }
 ])
+
 createRoot(document.getElementById('root')).render(
-    <RouterProvider router={routes} />
+  <RouterProvider router={routes} />
 )

@@ -4,8 +4,6 @@ import { api } from "../../../api/api";
 import { TbTrolley } from "react-icons/tb";
 import { VscEmptyWindow } from "react-icons/vsc";
 
-
-
 export default function AddToCart() {
   const [data, setData] = useState(null);
   const [cart, setCart] = useState([]);
