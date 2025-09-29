@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="col-md-3 mb-4">
             <h5>About Us</h5>
             <p>
-              RESTRO has been serving book lovers since 1995. 
+              BookNest has been serving book lovers since 1995. 
               We're passionate about connecting readers with great books.
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function Footer() {
 
         <hr className="border-light" />
         <div className="text-center" style={{ height: "0.5px" }}>
-          © {new Date().getFullYear()} RESTRO Bookstore. All rights reserved.
+          © {new Date().getFullYear()} BookNest. All rights reserved.
         </div>
       </div>
     </footer>

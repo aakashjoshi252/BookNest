@@ -4,6 +4,7 @@ export default function Carousel() {
     <div
       id="carouselExampleCaptions"
       className="carousel slide"
+      data-bs-interval="3000ms" 
       data-bs-ride="carousel"
       style={{ width: "90vw", margin: "auto" }}
     >
@@ -21,13 +22,11 @@ export default function Carousel() {
           type="button"
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide-to="1"
-          aria-label="Slide 2"
         ></button>
         <button
           type="button"
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide-to="2"
-          aria-label="Slide 3"
         ></button>
       </div>
 
@@ -54,6 +53,17 @@ export default function Carousel() {
           <div className="carousel-caption d-none d-md-block">
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div className="carousel-item">
+          <img
+            src="https://thumbs.dreamstime.com/b/child-school-library-kids-reading-books-read-little-boy-studying-children-book-store-smart-intelligent-preschool-kid-196109696.jpg"
+            className="d-block w-100 carousel-img"
+            alt="Library"
+          />
+          <div className="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the Third slide.</p>
           </div>
         </div>
       </div>

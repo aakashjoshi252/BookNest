@@ -57,19 +57,19 @@ export default function About() {
 
   const testimonials = [
     {
-      text: "Chapter & Verse is more than a bookstore - it's a sanctuary for book lovers.",
+      text: "BookNest is more than a bookstore - it's a sanctuary for book lovers.",
       img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       name: "Maria Gonzalez",
       role: "Customer since 2010",
     },
     {
-      text: "As a local author, I've been incredibly supported by Chapter & Verse. They hosted my book launch and continue to champion my work.",
+      text: "As a local author, I've been incredibly supported by BookNest. They hosted my book launch and continue to champion my work.",
       img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       name: "James Wilson",
       role: "Local Author",
     },
     {
-      text: "I've been coming to Chapter & Verse since they opened. The children's section is magical and got my kids excited about reading.",
+      text: "I've been coming to BookNest since they opened. The children's section is magical and got my kids excited about reading.",
       img: "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       name: "Priya Patel",
       role: "Customer since 1995",
@@ -82,7 +82,7 @@ export default function About() {
       <section className="row align-items-center mb-5">
         <div className="col-md-6">
           <h2>From Humble Beginnings</h2>
-          <p>Chapter & Verse began in 1995 as a small neighborhood bookshop...</p>
+          <p>BookNest began in 1995 as a small neighborhood bookshop...</p>
           <p>
             What started as a modest operation in a 500-square-foot storefront
             has grown into one of the region's most beloved bookstores.
@@ -104,7 +104,7 @@ export default function About() {
       <section className="row align-items-center mb-5 flex-row-reverse">
         <div className="col-md-6">
           <h2>Our Mission</h2>
-          <p>At Chapter & Verse, we believe in the transformative power of books...</p>
+          <p>At BookNest, we believe in the transformative power of books...</p>
           <p>
             We're more than just a bookstore - we're a community hub where book
             lovers can discover new titles, meet authors, and share their

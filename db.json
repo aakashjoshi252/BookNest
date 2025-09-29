@@ -1009,6 +1009,19 @@
       "zip": "313204",
       "email": "aaka@gmail.com",
       "checkbox": true
+    },
+    {
+      "id": "24f2",
+      "username": "test",
+      "password": "1234567",
+      "mobile": "1234567890",
+      "address": "MLVEKM",
+      "address2": "mlkvm",
+      "city": "Mavli",
+      "state": "GJ",
+      "zip": "313204",
+      "email": "test@gmail.com",
+      "checkbox": true
     }
   ],
   "send-email": [

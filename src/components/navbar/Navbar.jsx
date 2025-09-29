@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../api/api";
 import { MdDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
-
+// import logo "../../../pu"
 
 
 export default function Navbar() {
@@ -67,16 +67,23 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg shadow-sm sticky-top ${
-        darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+      className={`navbar navbar-expand-lg  shadow-sm sticky-top ${
+        darkMode ? "navbar-dark bg-dark text-light" : "navbar-light bg-light "
       }`}
       style={{ zIndex: 1020 }}
     >
       <div className="container">
-        <NavLink className="navbar-brand fw-bold" to="/">
-          RESTRO <MdCastForEducation />
-        </NavLink>
-
+    <NavLink className="navbar-brand fw-bold d-flex align-items-center" to="/">
+  <img 
+    // src="/logo-1.png"
+    src="BookNest.png"
+    alt="BookNest Logo" 
+    width="50" 
+    height="50"
+    className="rounded-circle" 
+  />
+  BookNest
+</NavLink>
         <button
           className="navbar-toggler"
           type="button"
