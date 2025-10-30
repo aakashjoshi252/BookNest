@@ -1022,6 +1022,19 @@
       "zip": "313204",
       "email": "test@gmail.com",
       "checkbox": true
+    },
+    {
+      "id": "bb1d",
+      "username": "test",
+      "password": "11111111",
+      "mobile": "1234567890",
+      "address": "udaipur",
+      "address2": "udaipur",
+      "city": "udaipur",
+      "state": "RJ",
+      "zip": "313000",
+      "email": "test@gmail.com",
+      "checkbox": true
     }
   ],
   "send-email": [

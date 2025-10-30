@@ -31,19 +31,19 @@ export default function Login() {
       );
 
       if (foundUser) {
-        alert("✅ Login Successful!");
+        alert(" Login Successful!");
         console.log("User found:", foundUser);
 
         handleSave(foundUser);
         navigate("/userProfile");
       } else {
-        alert("❌ Invalid username/email or password");
+        alert(" Invalid username/email or password");
       }
 
       resetForm();
     } catch (error) {
       console.error("Error during login:", error);
-      alert("⚠️ Something went wrong. Please try again.");
+      alert(" Something went wrong. Please try again.");
     }
   }
 
@@ -116,3 +116,4 @@ export default function Login() {
     </>
   );
 }
+  
