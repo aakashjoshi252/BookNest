@@ -24,7 +24,7 @@ export default function Regis() {
   const [states, setStates] = useState([]);
   const handleStates = async () => {
     try {
-      const response = await api.get("/indianStates/" || "https://690afcd61a446bb9cc24ba03.mockapi.io/states");
+      const response = await api.get("/states/" || "https://690afcd61a446bb9cc24ba03.mockapi.io/states");
       setStates(response.data);
     } catch (error) {
       console.error("Error fetching states:", error);
