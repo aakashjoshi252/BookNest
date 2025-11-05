@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { api } from "../../api/api";
 import { NavLink, Outlet } from "react-router-dom";
-import Carousel from "../../components/carousel/Carousel";
+// import Carousel from "../../components/carousel/Carousel";
 
 export default function Books() {
   const [data, setData] = useState([]);
@@ -16,7 +16,7 @@ export default function Books() {
 
   const handleFetch = async () => {
     try {
-      const response = await api.get("/books");
+      const response = await api.get("https://690afcd61a446bb9cc24ba03.mockapi.io/books");
       setData(response.data);
       setLoading(false);
     } catch (error) {
