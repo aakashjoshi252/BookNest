@@ -14,7 +14,7 @@ export default function BooksDetails() {
 
   const fetchBook = async () => {
     try {
-      const response = await api.get(`/books/${id}`);
+      const response = await api.get(`/books/${id}` || `https://690afcd61a446bb9cc24ba03.mockapi.io/books/${id}`);
       setData(response.data);
     } catch (error) {
       console.error(error);

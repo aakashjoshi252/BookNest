@@ -16,7 +16,7 @@ export default function Books() {
 
   const handleFetch = async () => {
     try {
-      const response = await api.get("https://690afcd61a446bb9cc24ba03.mockapi.io/books");
+      const response = await api.get("/books" ||"https://690afcd61a446bb9cc24ba03.mockapi.io/books");
       setData(response.data);
       setLoading(false);
     } catch (error) {

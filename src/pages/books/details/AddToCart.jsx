@@ -20,7 +20,7 @@ export default function AddToCart() {
     if (!id) return;
     async function fetchBook() {
       try {
-        const response = await api.get(`/books/${id}`);
+        const response = await api.get(`/books/${id}`|| `https://690afcd61a446bb9cc24ba03.mockapi.io/books/${id}`);
         setData(response.data);
 
         setCart((prev) => {

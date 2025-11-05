@@ -12,7 +12,7 @@ export default function RelatedBooks({ currentBookId }) {
 
   const fetchRelatedBooks = async () => {
     try {
-      const response = await api.get("/books");
+      const response = await api.get("/books"|| "https://690afcd61a446bb9cc24ba03.mockapi.io/books");
       // Exclude the current book
       const related = response.data
         .filter((book) => book.id !== currentBookId)

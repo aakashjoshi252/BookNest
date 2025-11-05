@@ -20,7 +20,7 @@ export default function Login() {
   // Handle login
   async function submitHandler(values, { resetForm }) {
     try {
-      const response = await api.get("/users"); // fetch users
+      const response = await api.get("/users" || "https://690afcd61a446bb9cc24ba03.mockapi.io/users"); // fetch users
       const users = response.data;
 
       // Find user by username OR email + password

@@ -24,7 +24,7 @@ export default function Regis() {
   const [states, setStates] = useState([]);
   const handleStates = async () => {
     try {
-      const response = await api.get("/states/" || "https://690afcd61a446bb9cc24ba03.mockapi.io/states");
+      const response = await api.get("/states" || "https://690afcd61a446bb9cc24ba03.mockapi.io/states");
       setStates(response.data);
     } catch (error) {
       console.error("Error fetching states:", error);
@@ -37,7 +37,7 @@ export default function Regis() {
   // Submit handler
   async function handleSendData(values, { resetForm }) {
     try {
-      const response = await api.post("/users", values);
+      const response = await api.post("/users"|| "https://690afcd61a446bb9cc24ba03.mockapi.io/users", values);
       console.log("✅ User registered:", response.data);
 
       alert("🎉 Registration successful! Please login.");
